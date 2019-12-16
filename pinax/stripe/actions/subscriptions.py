@@ -157,7 +157,7 @@ def sync_subscription_from_stripe_data(customer, subscription):
         ended_at=utils.convert_tstamp(subscription["ended_at"]),
         plan=models.Plan.objects.get(stripe_id=subscription["plan"]["id"]),
         quantity=subscription["quantity"],
-        start=utils.convert_tstamp(subscription["start"]),
+        start=utils.convert_tstamp(subscription["start_date"]),
         status=subscription["status"],
         trial_start=utils.convert_tstamp(subscription["trial_start"]) if subscription["trial_start"] else None,
         trial_end=utils.convert_tstamp(subscription["trial_end"]) if subscription["trial_end"] else None
